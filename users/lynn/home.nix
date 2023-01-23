@@ -6,7 +6,16 @@
     cyanrip
   ];
 
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+
+    profiles.Default = {
+      id = 0;
+      extraConfig = ''
+        user_pref("devtools.toolbox.zoomValue", 1.5);
+      '';
+    };
+  };
 
   programs.git = {
     enable = true;
