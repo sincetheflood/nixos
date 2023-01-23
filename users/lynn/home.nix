@@ -2,8 +2,8 @@
 
 {
 
-  home.packages = [
-    pkgs.cyanrip
+  home.packages = with pkgs; [
+    cyanrip
   ];
 
   programs.firefox.enable = true;
