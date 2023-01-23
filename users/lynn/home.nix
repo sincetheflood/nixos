@@ -12,7 +12,7 @@
     profiles.Default = {
       id = 0;
       extraConfig = ''
-        user_pref("devtools.toolbox.zoomValue", 1.5);
+        user_pref("devtools.toolbox.zoomValue", "1.5");
       '';
     };
   };
