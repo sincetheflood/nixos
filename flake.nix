@@ -11,16 +11,16 @@
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
     nixosConfigurations = {
-      mio = nixpkgs.lib.nixosSystem {
+      ruby = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./hosts
-          ./hosts/mio
+          ./hosts/ruby
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.lynn = import users/lynn/home.nix;
+            home-manager.users.lynn = import hosts/ruby/home.nix;
           }
         ];
       };

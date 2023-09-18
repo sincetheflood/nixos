@@ -3,8 +3,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    # User accounts
-    ../../users/lynn
   ];
 
   /* Bootloader */
@@ -21,7 +19,7 @@
   time.timeZone = "America/Chicago";
 
   networking = {
-    hostName = "mio";
+    hostName = "ruby";
     networkmanager.enable = true;
     firewall.enable = false; # Too much hassle for a personal desktop
   };
@@ -45,6 +43,13 @@
     # Enable KDE Plasma
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
+  };
+  
+  /* Users */
+  users.users.lynn = {
+    description = "Ophelia Rozniak";
+    isNormalUser = true;
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   system.stateVersion = "22.11";
