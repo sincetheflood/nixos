@@ -24,6 +24,19 @@
           }
         ];
       };
+      pyrrha = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts
+          ./hosts/pyrrha
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.lynn = import hosts/pyrrha/home.nix;
+          }
+        ];
+      };
     };
   };
 }
