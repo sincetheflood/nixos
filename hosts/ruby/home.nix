@@ -6,6 +6,11 @@
       ../../packages/git # import default git configuration
     ];
 
+  home.packages = with pkgs; [
+    kate
+    krita
+  ];
+
   programs.firefox = {
     enable = true;
 
