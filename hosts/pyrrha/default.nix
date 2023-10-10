@@ -47,6 +47,21 @@
   /* Firmware updater */
   services.fwupd.enable = true;
 
+  /* Power Management */
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        turbo = "never";
+      };
+      charger = {
+        governor = "powersave";
+        turbo = "auto";
+      };
+    };
+  };
+
   /* Users */
   users.users.lynn = {
     description = "Ophelia Rozniak";
