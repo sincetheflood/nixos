@@ -9,6 +9,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  /* Nix Settings */
+  nix.optimise.automatic = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
   /* Networking */
   time.timeZone = "America/Chicago";
 
@@ -36,7 +45,7 @@
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
   };
-  
+
   /* Users */
   users.users.lynn = {
     description = "Ophelia Rozniak";
