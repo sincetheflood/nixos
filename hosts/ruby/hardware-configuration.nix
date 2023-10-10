@@ -2,8 +2,8 @@
 
 {
   imports = [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
@@ -11,14 +11,14 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-      device = "/dev/disk/by-label/NIX-ROOT";
-      fsType = "ext4";
-    };
+    device = "/dev/disk/by-label/NIX-ROOT";
+    fsType = "ext4";
+  };
 
   fileSystems."/boot" = {
-      device = "/dev/disk/by-label/NIX-BOOT";
-      fsType = "vfat";
-    };
+    device = "/dev/disk/by-label/NIX-BOOT";
+    fsType = "vfat";
+  };
 
   swapDevices = [
     { device = "/dev/disk/by-label/NIX-SWAP"; }

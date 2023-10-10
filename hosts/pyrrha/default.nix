@@ -46,7 +46,7 @@
 
   /* Firmware updater */
   services.fwupd.enable = true;
-  
+
   /* Users */
   users.users.lynn = {
     description = "Ophelia Rozniak";
