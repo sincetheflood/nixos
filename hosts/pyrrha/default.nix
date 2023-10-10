@@ -5,15 +5,20 @@
     ./hardware-configuration.nix
   ];
 
-  /* Bootloader */
-  boot.loader = {
-    systemd-boot.enable = true;
+  /* Nix Settings */
+  nix.optimise.automatic = true;
 
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
   };
+
+  /* Bootloader */
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.consoleMode = "1"; # Looks better on larger screens
+
+  boot.loader.efi.canTouchEfiVariables = true;
 
   /* Networking */
   time.timeZone = "America/Chicago";
@@ -22,30 +27,6 @@
     hostName = "pyrrha";
     networkmanager.enable = true;
   };
-
-  /* Sound */
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
-
-  /* X11 */
-  services.xserver = {
-    enable = true;
-    # Set keymap
-    layout = "us";
-    # Enable KDE Plasma
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-  };
-
-  /* Firmware updater */
-  services.fwupd.enable = true;
 
   /* Power Management */
   services.auto-cpufreq = {
@@ -62,6 +43,29 @@
     };
   };
 
+  /* Desktop Environment */
+  # Sound
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+
+  # X11
+  services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+  };
+
+  /* Miscellaneous */
+  # Firmware Updater
+  services.fwupd.enable = true;
+
   /* Users */
   users.users.lynn = {
     description = "Ophelia Rozniak";
@@ -69,5 +73,5 @@
     extraGroups = [ "networkmanager" "wheel" "video" ];
   };
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }
