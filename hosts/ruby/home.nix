@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 {
-
-  home.packages = with pkgs; [
-    cyanrip
-  ];
+  imports =
+    [
+      ../../packages/git # import default git configuration
+    ];
 
   programs.firefox = {
     enable = true;
@@ -12,16 +12,10 @@
     profiles.Default = {
       id = 0;
       extraConfig = ''
-        user_pref("devtools.toolbox.zoomValue", "1.5");
+        user_pref("devtools.toolbox.zoomValue", "1.25");
       '';
     };
   };
 
-  programs.git = {
-    enable = true;
-    userName = "Ophelia Rozniak";
-    userEmail = "dev@ophelia.ink";
-  };
-
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.11";
 }

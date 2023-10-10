@@ -6,14 +6,8 @@
   ];
 
   /* Bootloader */
-  boot.loader = {
-    systemd-boot.enable = true;
-
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
-  };
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   /* Networking */
   time.timeZone = "America/Chicago";
@@ -38,8 +32,6 @@
   /* X11 */
   services.xserver = {
     enable = true;
-    # Set keymap
-    layout = "us";
     # Enable KDE Plasma
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
@@ -52,5 +44,5 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  system.stateVersion = "22.11";
+  system.stateVersion = "23.11";
 }
