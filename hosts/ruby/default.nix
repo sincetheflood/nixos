@@ -20,6 +20,8 @@
     options = "--delete-older-than 30d";
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   /* Networking */
   time.timeZone = "America/Chicago";
 
