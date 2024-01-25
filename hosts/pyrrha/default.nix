@@ -69,6 +69,8 @@
   # Firmware Updater
   services.fwupd.enable = true;
 
+  services.tailscale.enable = true;
+
   /* Users */
   users.users.lynn = {
     description = "Ophelia Rozniak";
