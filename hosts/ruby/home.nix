@@ -12,15 +12,8 @@
     krita
   ];
 
-  programs.firefox = {
+  programs.bash = {
     enable = true;
-
-    profiles.Default = {
-      id = 0;
-      extraConfig = ''
-        user_pref("devtools.toolbox.zoomValue", "1.25");
-      '';
-    };
   };
 
   programs.direnv = {
@@ -30,8 +23,15 @@
     nix-direnv.enable = true;
   };
 
-  programs.bash = {
+  programs.firefox = {
     enable = true;
+
+    profiles.Default = {
+      id = 0;
+      extraConfig = ''
+        user_pref("devtools.toolbox.zoomValue", "1.25");
+      '';
+    };
   };
 
   home.stateVersion = "23.11";
