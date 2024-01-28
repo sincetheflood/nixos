@@ -11,6 +11,8 @@
 
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
   /* Nix Settings */
   nix.optimise.automatic = true;
 
