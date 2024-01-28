@@ -6,10 +6,16 @@
       ../../packages/git # import default git configuration
     ];
 
+  # Enable font installation
+  # https://nix-community.github.io/home-manager/options.xhtml#opt-fonts.fontconfig.enable
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     jetbrains.webstorm
     kate
     krita
+    # fonts
+    fg-virgil
   ];
 
   programs.bash = {
