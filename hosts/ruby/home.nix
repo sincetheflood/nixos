@@ -11,11 +11,16 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    jetbrains.webstorm
-    kate
+    # art
     krita
+    inkscape
+    # coding
+    kate
+    vscodium
     # fonts
     fg-virgil
+    # media
+    vlc
   ];
 
   programs.bash = {
