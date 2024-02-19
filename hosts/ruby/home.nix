@@ -45,5 +45,13 @@
     };
   };
 
+  programs.helix = {
+    enable = true;
+  };
+
+  xdg.configFile."helix/config.toml".text = ''
+  theme = "onedark"
+  '';
+
   home.stateVersion = "23.11";
 }
