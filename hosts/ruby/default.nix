@@ -49,7 +49,8 @@
     enable = true;
     # Enable KDE Plasma
     displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
+    desktopManager.plasma6.enable = true;
+    desktopManager.plasma6.enableQt5Integration = true;
   };
 
   services.tailscale = {
