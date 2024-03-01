@@ -5,14 +5,6 @@
     ./hardware-configuration.nix
   ];
 
-  /* Bootloader */
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.consoleMode = "1";
-
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.supportedFilesystems = [ "ntfs" "xfs" ];
-
   /* Nix Settings */
   nix.optimise.automatic = true;
 
@@ -24,6 +16,14 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  /* Bootloader */
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.consoleMode = "1";
+
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.supportedFilesystems = [ "ntfs" "xfs" ];
+
   /* Networking */
   time.timeZone = "America/Chicago";
 
@@ -33,7 +33,8 @@
     firewall.enable = false; # Too much hassle for a personal desktop
   };
 
-  /* Sound */
+  /* Desktop Environment */
+  # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -44,7 +45,7 @@
     pulse.enable = true;
   };
 
-  /* X11 */
+  # X11
   services.xserver = {
     enable = true;
     # Enable KDE Plasma
@@ -53,6 +54,8 @@
     desktopManager.plasma6.enableQt5Integration = true;
   };
 
+  /* Miscellaneous */
+  # Tailscale
   services.tailscale = {
     enable = true;
   };
