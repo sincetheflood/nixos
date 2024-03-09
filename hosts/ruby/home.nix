@@ -21,6 +21,8 @@
     fg-virgil
     # media
     vlc
+    # utilities
+    file
   ];
 
   programs.bash = {
