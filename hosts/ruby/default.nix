@@ -34,6 +34,16 @@
   };
 
   /* Desktop Environment */
+  # SDDM
+  services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
+  };
+
+  # KDE Plasma 6
+  services.desktopManager.plasma6.enable = true;
+  
   # Sound
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -43,15 +53,6 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
-  };
-
-  # X11
-  services.xserver = {
-    enable = true;
-    # Enable KDE Plasma
-    displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
-    desktopManager.plasma6.enableQt5Integration = true;
   };
 
   /* Miscellaneous */
