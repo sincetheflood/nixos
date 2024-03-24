@@ -15,6 +15,7 @@
     krita
     inkscape
     # coding
+    devenv
     kate
     vscodium
     # fonts
