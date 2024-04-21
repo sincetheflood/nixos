@@ -45,10 +45,9 @@
 
   /* Desktop Environment */
   # SDDM
-  services.xserver = {
+  services.displayManager.sddm = {
     enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
+    wayland.enable = true;
   };
 
   # KDE Plasma 6
